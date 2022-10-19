@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/light_gray">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:padding="15dp"
+        android:background="@color/black">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView_logo"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="110dp"
+            android:src="@drawable/ic_launcher_background"
+            android:maxWidth="100dp"
+            android:adjustViewBounds="true"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/textView_main_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView_logo"
+            android:layout_marginTop="30dp"
+            android:text="welcome to android Environment app"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/button_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_main_head"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="70dp"
+            android:backgroundTint="@color/earthLighterGreen"
+            android:text="LogIn"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:id="@+id/button_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button_login"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="70dp"
+            android:backgroundTint="@color/earthLighterGreen"
+            android:text="Sign Up"
+            android:textColor="@color/black"/>
+
+    </RelativeLayout>
+
+
+</ScrollView>
