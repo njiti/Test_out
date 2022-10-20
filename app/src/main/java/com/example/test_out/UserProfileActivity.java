@@ -3,6 +3,9 @@ package com.example.test_out;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -47,9 +50,32 @@ public class UserProfileActivity extends AppCompatActivity {
         if (firebaseUser == null) {
             Toast.makeText(UserProfileActivity.this, "Something went wrong! User's details are not available at the moment", Toast.LENGTH_SHORT).show();
         } else {
+            checkIfEmailVerified(firebaseUser);
             progressBar.setVisibility(View.VISIBLE);
             showUserProfile(firebaseUser);
         }
+    }
+
+    //Users coming to UserProfileActivity after successful register
+    private void checkIfEmailVerified(FirebaseUser firebaseUser) {
+        if (!firebaseUser.isEmailVerified()) {
+            showAlertDialog();
+        }
+    }
+
+    private void showAlertDialog(){
+        //Set the Alert Builder
+        AlertDialog.Builder builder = new  AlertDialog.Builder(UserProfileActivity.this);
+        builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_APP_EMAIL);
+                intent.addCategory(Intent.CATEGORY_APP_EMAIL);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); //To email app in  new window and not phone window
+                startActivity(intent);
+            }
+        });
     }
 
     private void showUserProfile(FirebaseUser firebaseUser) {
